@@ -23,7 +23,7 @@ exports[`List component renders the UI as expected 1`] = `
         delete
       </button>
       <h3>
-        Third Card
+        Fourth Card
       </h3>
       <p>
         Lorem ipsum
