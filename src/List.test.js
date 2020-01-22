@@ -27,7 +27,10 @@ let allCards = [
 describe('List component', () =>{
     it('renders without crashing', () => {
         const div = document.createElement('div');
-        ReactDOM.render(<List header='Second Row'/>, div);
+        ReactDOM.render(<List 
+          header='Second Row'
+          cards={allCards}
+          />, div);
         ReactDOM.unmountComponentAtNode(div);
     });
 
@@ -53,3 +56,5 @@ describe('List component', () =>{
         expect(tree).toMatchSnapshot();
     });
 });
+
+//
