@@ -1,17 +1,32 @@
 import React, { Component } from 'react';
 import List from './List'
 import './App.css';
+import STORE from './STORE';
 
 class App extends Component {
-  static defaultProps = {
-    store: {
-      lists: [],
-      allCards: {},
-    }
-  };
+  // static defaultProps = {
+  //   store: {
+  //     lists: [],
+  //     allCards: {},
+  //   }
+  // }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      store: STORE,
+    };
+  }
+
+  handleDeleteFunction =(cardId, listId) =>{
+      console.log("delete works");
+      console.log(cardId + " " + listId);
+
+  }
 
   render() {
-    const { store } = this.props
+    const { store } = this.state;
+    console.log(store);
     return (
       <main className='App'>
         <header className='App-header'>
@@ -20,9 +35,11 @@ class App extends Component {
         <div className='App-list'>
           {store.lists.map(list => (
             <List
-              key={list.id}
+              id={this.state.store.id}
               header={list.header}
               cards={list.cardIds.map(id => store.allCards[id])}
+              listId={list.id}
+              onDelete={this.handleDeleteFunction}
             />
           ))}
         </div>
